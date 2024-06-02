@@ -1,3 +1,1 @@
-# expense-shell
-
-Hello World
+### Hi there

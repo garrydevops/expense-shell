@@ -34,3 +34,4 @@ mysql -h 10.0.0.4 -uroot -pExpenseApp@1 < /app/schema/backend.sql
 systemctl daemon-reload
 systemctl enable backend 
 systemctl start backend 
+

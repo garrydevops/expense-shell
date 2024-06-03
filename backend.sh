@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Pre-requisite : add ports in  firewall
-sudo -i 
+
 firewall-cmd --permanent --add-port=3306/tcp
 firewall-cmd --permanent --add-port=80/tcp
 firewall-cmd --permanent --add-port=8080/tcp
@@ -15,7 +15,7 @@ yum update
 
 #add user 
 useradd expense
-
+su expense
 #copy backend service file
 cp backend.service /etc/systemd/system/backend.service
 mkdir /app 
@@ -30,7 +30,7 @@ npm install
 
 #install mysql 
 dnf install mysql -y 
-mysql -h <Private IP of SQL> -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h 10.0.0.4 -uroot -pExpenseApp@1 < /app/schema/backend.sql
 systemctl daemon-reload
 systemctl enable backend 
 systemctl start backend 
